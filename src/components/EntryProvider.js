@@ -34,7 +34,13 @@ export const EntryProvider = props => {
   const getEntryById = id => {
     return fetch(`http://localhost:8088/entries/${id}`)
       .then(res => res.json())
-      .then(setEntry);
+      .then(entry => {
+      const arrayOfTagIds = entry.tags.map(tag => {
+          return tag.id
+      })
+      entry.tags = arrayOfTagIds
+      setEntry(entry)
+      })
   };
 
   const addEntry = Entry => {
