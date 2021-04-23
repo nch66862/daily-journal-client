@@ -40,7 +40,7 @@ export const EntryList = () => {
       {
         moods.map(mood => {
           return <>
-            <input type="radio" value={mood.id} name="moodId" checked={moodSelected === mood.id}
+            <input key={mood.id} type="radio" value={mood.id} name="moodId" checked={moodSelected === mood.id}
               onClick={filterAllEntries}
             /> {mood.label}
           </>

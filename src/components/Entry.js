@@ -13,6 +13,11 @@ export const Entry = ({ entry, moods }) => {
       <div className="entry__entry">{entry.entry}</div>
       <div className="entry__date">{entry.date}</div>
       <div className="entry__mood">{mood.label}</div>
+      <article>
+        {entry.tags.map(tag => {
+          return <div className="entry__tags">#{tag.name}</div>
+        })}
+      </article>
 
       <button onClick={
         () => {
